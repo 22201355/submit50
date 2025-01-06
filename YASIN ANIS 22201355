@@ -1,0 +1,43 @@
+#include ‹stdio.h>
+#include < stdlib.h> #include ‹ctype.h>
+#include ‹string.h>
+// Function prototypes
+bool only_digits(string s); char rotate(char c, int key);
+int main (int arge, string argv[])
+// Ensure exactly one command-line argument
+if
+{
+(arge != 2 || lonly _digits(argv[1]))
+printf( "Usage: /caesar key\n");
+return 1;
+}
+// Convert key from string to int
+int key = atoi(argv[1]) ;
+// Prompt user for plaintext
+string plaintext = get_string ("plaintext: ");
+// Encrypt the plaintext
+printf ("ciphertext: ");
+for (int i = 0, n = strlen(plaintext); i < n; i {
+printf("%", rotate(plaintext[il, key));
+printf("\n" );
+return 0;
+}
+// Function to check if a string contains only digits
+bool only_digits (string s)
+{
+for (int i = 0, n = strlen(s); i ‹ n; i++)
+if (lisdigit(s[il))
+{
+return false;
+}
+return true;
+}
+// Function to rotate a character
+char rotate (char c, int key)
+{
+if
+(isalpha (c) )
+char offset = isupper(c) ? 'A' : 'a';
+return (c - offset + key) % 26 + offset;
+}
+return c; // Non-alphabetical characters are unchanged
